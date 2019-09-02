@@ -67,11 +67,11 @@
 			children = (
 				6FA9BB31231B6A5300DDA179 /* AppDelegate.swift */,
 				6FA9BB35231B6A5300DDA179 /* Main.storyboard */,
+				6FA9BB3A231B6A5400DDA179 /* LaunchScreen.storyboard */,
 				6FA9BB53231B873300DDA179 /* View */,
 				6FA9BB47231B6B6400DDA179 /* ViewControllers */,
 				6FA9BB5D231CD22A00DDA179 /* CoreData */,
 				6FA9BB38231B6A5400DDA179 /* Assets.xcassets */,
-				6FA9BB3A231B6A5400DDA179 /* LaunchScreen.storyboard */,
 				6FA9BB3D231B6A5400DDA179 /* Info.plist */,
 				6FA9BB2F231B6A5300DDA179 /* Products */,
 			);
