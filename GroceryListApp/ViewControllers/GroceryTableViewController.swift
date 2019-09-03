@@ -16,18 +16,12 @@ class GroceryTableViewController: UITableViewController {
     
     var resultController: NSFetchedResultsController<GroceryToDo>!
     let coreDataStack = CoreDataStack()
-    
+    let date = NSDate()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+      
         let request: NSFetchRequest<GroceryToDo> = GroceryToDo.fetchRequest()
-        let sortDescriptors = NSSortDescriptor(key: "groceryItem", ascending: false
-        )
+        let sortDescriptors = NSSortDescriptor(key: "groceryItem", ascending: true)
         request.sortDescriptors = [sortDescriptors]
     resultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: coreDataStack.managedContext, sectionNameKeyPath: nil, cacheName: nil)
         resultController.delegate = self
@@ -65,6 +59,10 @@ class GroceryTableViewController: UITableViewController {
         //return groceries.count
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+    }
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
@@ -93,10 +91,7 @@ class GroceryTableViewController: UITableViewController {
         let groceryTodo = resultController.object(at: indexPath)
         cell.itemCell.text = groceryTodo.groceryItem
         
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! groceryTableViewCell
-        
-       // cell.itemCell.text = groceries[indexPath.row].groceryItem
-        
+       
         return cell
     }
     

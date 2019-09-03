@@ -22,7 +22,7 @@ class AddGroceryViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        // self.view.backgroundColor = UIColor.clear
+      
         self.view.backgroundColor = UIColor.black.withAlphaComponent( 0.8)
     }
     
@@ -30,9 +30,7 @@ class AddGroceryViewController: UIViewController {
     
     
     @IBAction func save(_ sender: UIButton) {
-       // groceryItem = itemOutlet.text!
-        //let grocery = groceryItem
-       // delegate?.addGrocery(groceryItem: grocery)
+     
         guard let groceryItem = itemOutlet.text, !groceryItem.isEmpty else{
         return
         }
@@ -51,7 +49,6 @@ class AddGroceryViewController: UIViewController {
         
     }
     @IBAction func cancel(_ sender: UIButton) {
-        //self.view.removeFromSuperview()
         dismiss(animated: true)
         itemOutlet.resignFirstResponder()
  
